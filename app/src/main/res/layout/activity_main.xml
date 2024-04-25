@@ -74,12 +74,19 @@
     </LinearLayout>
 
     <!--    Liste des jours/tâches      -->
-    <ListView
-        android:id="@+id/lvTaches"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:background="@drawable/gradient_background"/>
+        android:layout_gravity="center"
+        android:background="@drawable/gradient_background">
+
+        <ListView
+            android:id="@+id/lvTaches"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_background"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:padding="16dp" />
+    </HorizontalScrollView>
 </LinearLayout>

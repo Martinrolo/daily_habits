@@ -10,6 +10,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,6 +88,7 @@ public class TachesAdapter extends ArrayAdapter<String> {
                 layoutTachesJour.addView(btnInfoTache);
                 btnInfoTache.setImageResource(R.drawable.description);
 
+                Log.e("TACHE", "TACHE: " + listeTachesMois.get(0).id);
                 idTache = listeTachesMois.get(i - 1).id;
 
                 //Ajouter l'écouteur d'événement sur les boutons pour quand on afficher le titre de la tâche
@@ -212,9 +214,16 @@ public class TachesAdapter extends ArrayAdapter<String> {
         btnSupprimerTache.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Supprimer la tâche et get les nouvelles tâches
                 gestionnaireBD.supprimerTache(idTache);
+                Log.e("MOIS ANNEE", "MOIS: " + mois + "ANNEE: " + annee);
+                listeTachesMois = gestionnaireBD.getTachesMois(mois, annee);
+                MainActivity.nbTaches = gestionnaireBD.getNbTachesMois(String.valueOf(mois), String.valueOf(annee));
 
+
+//                listeJours.add("0");
                 notifyDataSetChanged();
+                popupMenu.dismiss();
             }
         });
     }
