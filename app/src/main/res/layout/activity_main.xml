@@ -1,0 +1,85 @@
+<LinearLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activities.MainActivity"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:gravity="center_horizontal">
+
+    <!--    Titre menu      -->
+    <TextView
+        android:id="@+id/txtHistorique"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="10sp"
+        android:text="Liste des tâches"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="10sp"
+        android:text="Avril 2024"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="5dp"/>
+
+    <!--    Menu (changer de mois, ajouter tâche)   -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/gris">
+
+        <ImageButton
+            android:id="@+id/btnMoisPrecedent"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/navigate_before"
+            android:backgroundTint="@color/black">
+
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/btnAjouterTache"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/add"
+            android:backgroundTint="@color/black">
+
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/btnMoisSuivant"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/navigate_after"
+            android:backgroundTint="@color/black">
+
+
+        </ImageButton>
+
+    </LinearLayout>
+
+    <!--    Liste des jours/tâches      -->
+    <ListView
+        android:id="@+id/lvTaches"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:background="@drawable/gradient_background"/>
+</LinearLayout>
